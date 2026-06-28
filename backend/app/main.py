@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from sqlalchemy import text
+
+from app.database.session import engine
 
 app = FastAPI(
     title="BookMind AI",
@@ -8,9 +11,10 @@ app = FastAPI(
 
 @app.get("/")
 def root():
-    return {
-        "message": "Welcome to BookMind AI"
-    }
+    with engine.connect() as connection:
+        connection.execute(text("SELECT 1"))
+
+    return {"message": "Database connected successfully!"}
     
 @app.get("/health")
 def health():
