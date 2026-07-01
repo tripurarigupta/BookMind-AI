@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, String, Float, Text
+from sqlalchemy import Integer, String, Float, Text, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.database.base import Base
@@ -8,7 +8,7 @@ class Book(Base):
     __tablename__ = "books"
 
     book_id: Mapped[int] = mapped_column(
-        Integer,
+        BigInteger,
         primary_key=True,
         index=True
     )

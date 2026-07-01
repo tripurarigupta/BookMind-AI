@@ -3,6 +3,7 @@ from sqlalchemy import text
 
 from app.database.session import engine
 from app.api.auth import router as auth_router
+from app.api.book import router as book_router
 
 app = FastAPI(
     title="BookMind AI",
@@ -13,6 +14,9 @@ app = FastAPI(
 # Register API routers
 app.include_router(auth_router)
 
+# Book API routers
+app.include_router(book_router)
+
 
 @app.get("/")
 def root():
@@ -21,11 +25,4 @@ def root():
 
     return {
         "message": "Database connected successfully!"
-    }
-
-
-@app.get("/health")
-def health():
-    return {
-        "status": "healthy"
     }
