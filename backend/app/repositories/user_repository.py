@@ -10,7 +10,7 @@ class UserRepository:
     def get_by_email(db: Session, email: str) -> User | None:
         """
         Get user by email.
-        """
+        """                           
         result = db.execute(
             select(User).where(User.email == email)
         )
