@@ -11,10 +11,7 @@ from app.schemas.book import(
 
 class BookService:
     @staticmethod
-    def get_books(
-        db: Session,
-        page: int,
-        limit: int
+    def get_books(db: Session, page: int, limit: int
     ):
         books = BookRepository.get_books(
             db,
@@ -31,10 +28,22 @@ class BookService:
             books= books
         )
         
+    # get by id
+    @staticmethod
     def get_by_id(db: Session, book_id: int):
         return BookRepository.get_by_id(
             db,
             book_id=book_id
+        )
+        
+    # search by title
+    @staticmethod
+    def search_by_title(db: Session, title: str, page: int, limit: int):
+        return BookRepository.search_by_title(
+            db, 
+            title=title,
+            offset=((page-1)*limit),
+            limit= limit
         )
         
         

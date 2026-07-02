@@ -20,12 +20,13 @@ class BookRepository:
         return db.execute(query).scalar_one_or_none()
     
     @staticmethod
-    def search_books(db, title):
-        pass
+    def search_by_title(db: Session, title, offset, limit):
+        query = (
+            select(Book).where(Book.title.ilike(f"%{title}%")).offset(offset).limit(limit)
+        )
+        return db.execute(query).scalars().all()
     
-    @staticmethod
-    def get_by_ids(db, ids):
-        pass
+
     
     @staticmethod
     def count_books(db: Session):
