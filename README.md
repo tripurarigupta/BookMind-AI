@@ -23,4 +23,6 @@ An AI-powered intelligent book recommendation platform.
 
 ## Status
 
-🚧 Under Development
+- ✅ Authentication
+- ✅ Books
+- ✅ Favorite Books
