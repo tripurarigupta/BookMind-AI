@@ -1,5 +1,5 @@
 from sqlalchemy import Integer, String, Float, Text, BigInteger
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.base import Base
 
@@ -32,4 +32,9 @@ class Book(Base):
     ratings_count: Mapped[int] = mapped_column(
         Integer,
         nullable=False
+    )
+    
+    favorite_by = relationship(
+    "FavoriteBook",
+    back_populates="book",
     )

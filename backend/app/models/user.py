@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import String, Boolean, DateTime, func
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.base import Base
 
@@ -49,4 +49,10 @@ class User(Base):
         DateTime(timezone=True),
         server_default=func.now(),
         onupdate=func.now()
+    )
+    
+    favorite_books = relationship(
+    "FavoriteBook",
+    back_populates="user",
+    cascade="all, delete-orphan",
     )

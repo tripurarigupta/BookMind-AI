@@ -4,6 +4,7 @@ from sqlalchemy import text
 from app.database.session import engine
 from app.api.auth import router as auth_router
 from app.api.book import router as book_router
+from app.api.favorite import router as favorite_router
 
 app = FastAPI(
     title="BookMind AI",
@@ -16,6 +17,10 @@ app.include_router(auth_router)
 
 # Book API routers
 app.include_router(book_router)
+
+
+# Favorite Book API routers
+app.include_router(favorite_router)
 
 
 @app.get("/")
