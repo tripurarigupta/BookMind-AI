@@ -1,7 +1,6 @@
-from sqlalchemy import select, func
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 from app.models.rating import Rating
-from app.models.book import Book
 
 class RatingRepository:
     

@@ -41,3 +41,8 @@ class Book(Base):
     ratings = relationship(
     "Rating",
     back_populates="book")
+    
+    reviews = relationship(
+        "Review",
+        back_populates="book"
+    )

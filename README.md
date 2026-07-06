@@ -27,3 +27,4 @@ An AI-powered intelligent book recommendation platform.
 - ✅ Books
 - ✅ Favorite Books
 - ✅ Rating Books
+- ✅ Review Books

@@ -25,7 +25,7 @@ class Rating(Base):
     )
     
     user_id: Mapped[int] = mapped_column(
-        BigInteger,
+        Integer,
         ForeignKey("users.id"),
         nullable=False
     )

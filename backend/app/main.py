@@ -6,6 +6,7 @@ from app.api.auth import router as auth_router
 from app.api.book import router as book_router
 from app.api.favorite import router as favorite_router
 from app.api.rating import router as rating_router
+from app.api.review import router as review_router
 
 app = FastAPI(
     title="BookMind AI",
@@ -24,8 +25,12 @@ app.include_router(book_router)
 app.include_router(favorite_router)
 
 
-# Rating Book API routers
+#  Book Rating API routers
 app.include_router(rating_router)
+
+
+#  Book Review API routers
+app.include_router(review_router)
 
 
 @app.get("/")
