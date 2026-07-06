@@ -1,7 +1,6 @@
 from sqlalchemy import select, func
 from sqlalchemy.orm import Session
 from app.models.book import Book
-
 class BookRepository:
     
     @staticmethod

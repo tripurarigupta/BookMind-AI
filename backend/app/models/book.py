@@ -1,6 +1,5 @@
 from sqlalchemy import Integer, String, Float, Text, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
 from app.database.base import Base
 
 
@@ -38,3 +37,7 @@ class Book(Base):
     "FavoriteBook",
     back_populates="book",
     )
+    
+    ratings = relationship(
+    "Rating",
+    back_populates="book")

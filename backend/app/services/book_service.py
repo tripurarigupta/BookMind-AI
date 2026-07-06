@@ -3,8 +3,6 @@ from app.models.book import Book
 import math
 from app.repositories.book_repository import BookRepository
 from app.schemas.book import(
-    BookResponse,
-    BookDetailResponse,
     BookListResponse
 )
 
