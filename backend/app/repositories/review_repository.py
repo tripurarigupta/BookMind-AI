@@ -21,8 +21,8 @@ class ReviewRepository:
     
     
     @staticmethod
-    def get_review_by_book(db:Session, book_id:int, offset:int, limit:int):
+    def get_review_by_book(db:Session, book_id:int):
         query = (
-            select(Review).where(Review.book_id == book_id)).offset(offset).limit(limit)
+            select(Review).where(Review.book_id == book_id))
         review = db.execute(query).scalars().all()
         return review

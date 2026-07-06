@@ -25,16 +25,13 @@ def create_review(
         content = request.content
     )
     
-@router.get("/{book_id}/review")
+@router.get("/{book_id}/review",
+            response_model=list[ReviewResponse])
 def get_review(
     book_id:int,
-    page:int = 1,
-    limit:int = 10,
     db:Session = Depends(get_db)
 ):
     return ReviewService.get_review_by_book(
         db,
-        book_id = book_id,
-        page = page,
-        limit = limit
+        book_id = book_id
     )

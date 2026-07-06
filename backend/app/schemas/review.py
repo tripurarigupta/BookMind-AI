@@ -20,7 +20,5 @@ class ReviewResponse(BaseModel):
     content: str
     created_at: datetime
     updated_at: datetime
-    page: int
-    limit: int
     
     model_config = ConfigDict(from_attributes=True)

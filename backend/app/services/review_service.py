@@ -27,10 +27,8 @@ class ReviewService:
         
     
     @staticmethod
-    def get_review_by_book(db: Session, book_id:int, page:int, limit:int):
+    def get_review_by_book(db: Session, book_id:int):
         return ReviewRepository.get_review_by_book(
             db,
-            book_id,
-            offset=((page-1)*limit),
-            limit=limit
+            book_id
             )
