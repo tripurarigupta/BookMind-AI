@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, exists
 from sqlalchemy.orm import Session
 from app.models.rating import Rating
 
@@ -26,3 +26,8 @@ class RatingRepository:
     @staticmethod
     def delete_rating():
         pass
+
+
+    @staticmethod
+    def has_ratings(db: Session, user_id):
+        return db.scalar(select(exists().where(Rating.user_id == user_id)))

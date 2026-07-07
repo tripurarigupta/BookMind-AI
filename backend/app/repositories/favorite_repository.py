@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, exists
 from sqlalchemy.orm import Session, joinedload
 from app.models.favorite_books import FavoriteBook
 
@@ -40,3 +40,7 @@ class FavoriteRepository:
         db.delete(favorite)
         db.commit()
         return favorite
+    
+    @staticmethod
+    def has_favorites(db: Session, user_id):
+        return db.scalar(select(exists().where(FavoriteBook.user_id == user_id)))

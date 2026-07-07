@@ -1,4 +1,5 @@
 from pydantic import BaseModel, ConfigDict
+from enum import Enum
 
 class BookResponse(BaseModel):
     book_id: int
@@ -20,4 +21,16 @@ class BookListResponse(BaseModel):
     limit: int
     total_books: int 
     total_pages: int
+    books: list[BookResponse]
+    
+    
+class RecommendationType(str, Enum):
+    POPULAR = "popular"
+    CONTENT_BASED = "content_based"
+    COLLABORATIVE = "collaborative"
+    HYBRID = "hybrid"
+    
+    
+class RecommendationResponse(BaseModel):
+    type: str
     books: list[BookResponse]

@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, exists
 from sqlalchemy.orm import Session
 from app.models.review import Review
 from app.models.book import Book
@@ -26,3 +26,8 @@ class ReviewRepository:
             select(Review).where(Review.book_id == book_id))
         review = db.execute(query).scalars().all()
         return review
+    
+    
+    @staticmethod
+    def has_reviews(db: Session, user_id):
+        return db.scalar(select(exists().where(Review.user_id == user_id)))
