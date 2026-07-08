@@ -31,3 +31,9 @@ class RatingRepository:
     @staticmethod
     def has_ratings(db: Session, user_id):
         return db.scalar(select(exists().where(Rating.user_id == user_id)))
+    
+    @staticmethod
+    def get_latest_liked_book(db: Session, user_id: int):
+        return (db.execute( select(Rating).where(
+                    Rating.user_id == user_id,
+                    Rating.rating >= 4).order_by(Rating.updated_at.desc())).scalars().first())

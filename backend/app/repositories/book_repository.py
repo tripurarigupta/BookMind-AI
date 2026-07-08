@@ -34,3 +34,8 @@ class BookRepository:
         )
         total_books = db.execute(query).scalar_one()
         return total_books
+    
+    @staticmethod
+    def get_books_by_ids(db: Session, book_ids: list[int]):
+        books = db.execute(select(Book).where(Book.book_id.in_(book_ids))).scalars().all()
+        return books
