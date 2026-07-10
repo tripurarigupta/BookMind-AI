@@ -28,3 +28,5 @@ An AI-powered intelligent book recommendation platform.
 - ✅ Favorite Books
 - ✅ Rating Books
 - ✅ Review Books
+- ✅ Book Recommendation
+- ✅ User Book Shelf 
