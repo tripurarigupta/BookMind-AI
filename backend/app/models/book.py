@@ -46,3 +46,8 @@ class Book(Base):
         "Review",
         back_populates="book"
     )
+    
+    user_books = relationship(
+        "Shelf",
+        back_populates="book"
+    )
