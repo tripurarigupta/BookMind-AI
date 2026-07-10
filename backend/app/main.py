@@ -9,11 +9,21 @@ from app.api.rating import router as rating_router
 from app.api.review import router as review_router
 from app.api.recommendation import router as recommendation_router
 from app.api.shelf import router as shelf_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="BookMind AI",
     version="1.0.0",
     description="AI powered book recommendation platform"
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Register API routers
