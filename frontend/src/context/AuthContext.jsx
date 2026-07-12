@@ -1,47 +1,66 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { getCurrentUser } from "../services/authService";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-function AuthProvider({ children }) {
-    const [token, setToken] = useState(() => {
-        return localStorage.getItem("access_token") || null;
-    });
+export const useAuth = () => useContext(AuthContext);
 
-    const [isAuthenticated, setIsAuthenticated] = useState(!!token);
+const AuthProvider = ({ children }) => {
 
-    const login = (accessToken) => {
-        localStorage.setItem("access_token", accessToken);
-        setToken(accessToken);
-        setIsAuthenticated(true);
-    };
+    const [user, setUser] = useState(null);
 
-    const logout = () => {
-        localStorage.removeItem("access_token");
-        setToken(null);
-        setIsAuthenticated(false);
-    };
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const storedToken = localStorage.getItem("access_token");
 
-        if (storedToken) {
-            setToken(storedToken);
-            setIsAuthenticated(true);
-        }
+        const loadUser = async () => {
+
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                setLoading(false);
+                return;
+            }
+
+            try {
+
+                const currentUser = await getCurrentUser();
+
+                setUser(currentUser);
+
+            }
+
+            catch (error) {
+
+                localStorage.removeItem("token");
+
+                setUser(null);
+
+            }
+
+            finally {
+
+                setLoading(false);
+
+            }
+
+        };
+
+        loadUser();
+
     }, []);
 
+    const value = {
+        user,
+        setUser,
+        loading,
+    };
+
     return (
-        <AuthContext.Provider
-            value={{
-                token,
-                isAuthenticated,
-                login,
-                logout,
-            }}
-        >
+        <AuthContext.Provider value={value}>
             {children}
         </AuthContext.Provider>
     );
-}
+};
 
 export default AuthProvider;
