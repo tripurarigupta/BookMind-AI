@@ -14,7 +14,7 @@ const ShelfButton = ({ bookId }) => {
                 if (data.status) {
                     setStatus(data.status);
                 } else {
-                    setStatus("want_to_read");
+                    setStatus("");
                 }
             } catch (error) {
                 console.error(error);
@@ -52,6 +52,9 @@ const ShelfButton = ({ bookId }) => {
             value={status}
             onChange={handleChange}
         >
+            <option value="" disabled>
+                    Select Shelf
+            </option>
             <option value="want_to_read">
                 📚 Want To Read
             </option>

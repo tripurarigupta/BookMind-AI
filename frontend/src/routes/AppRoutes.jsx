@@ -7,6 +7,9 @@ import BookDetails from "../pages/BookDetails/BookDetails";
 
 import ProtectedRoute from "./ProtectedRoute";
 import Layout from "../components/layout/Layout";
+import Favorites from "../pages/Favorites/Favorites";
+import Shelves from "../pages/Shelves/Shelves";
+import Search from "../pages/Search/Search";
 
 const AppRoutes = () => {
     return (
@@ -38,6 +41,19 @@ const AppRoutes = () => {
                     <Route
                         path="/books/:bookId"
                         element={<BookDetails />}
+                    />
+
+                    <Route
+                        path="/favorites"
+                        element={<Favorites />}
+                    />
+
+                    <Route path="/shelves"
+                    element={<Shelves />}
+                    />
+
+                    <Route path="/search"
+                    element={<Search />}
                     />
 
                 </Route>

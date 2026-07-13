@@ -1,0 +1,39 @@
+.favorites-page{
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    padding:0 20px;
+
+}
+
+.favorites-page h1{
+
+    margin-bottom:35px;
+
+}
+
+.favorites-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+
+    gap:30px;
+
+}.empty-state{
+
+    text-align:center;
+
+    margin-top:120px;
+
+    color:#6b7280;
+
+}
+
+.empty-state h2{
+
+    margin-bottom:10px;
+
+}
