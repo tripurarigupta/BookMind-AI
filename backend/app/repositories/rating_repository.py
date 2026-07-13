@@ -37,3 +37,18 @@ class RatingRepository:
         return (db.execute( select(Rating).where(
                     Rating.user_id == user_id,
                     Rating.rating >= 4).order_by(Rating.updated_at.desc())).scalars().first())
+
+    @staticmethod
+    def get_user_rating(
+        db: Session,
+        user_id: int,
+        book_id: int
+    ):
+        return (
+            db.execute(
+                select(Rating).where(
+                    Rating.user_id == user_id,
+                    Rating.book_id == book_id
+                )
+            ).scalar_one_or_none()
+        )

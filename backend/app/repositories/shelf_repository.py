@@ -40,3 +40,15 @@ class ShelfRepository:
     @staticmethod
     def delete_book_from_shelf(db: Session, user_id:int, book_id:int):
         db.execute(delete(Shelf).where(Shelf.user_id == user_id, Shelf.book_id == book_id))
+        
+        
+    @staticmethod
+    def get_user_shelf(db: Session, user_id: int, book_id: int):
+        return (
+            db.execute(
+                select(Shelf).where(
+                    Shelf.user_id == user_id,
+                    Shelf.book_id == book_id
+                )
+            ).scalar_one_or_none()
+        )

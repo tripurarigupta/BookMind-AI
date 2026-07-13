@@ -4,12 +4,15 @@ import RecommendationApi from "../../api/recommendationApi";
 
 const Home = () => {
     const [books, setBooks] = useState([]);
+    const [recommendationType, setRecommendationType] = useState("");
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
                 const data = await RecommendationApi.getRecommendations();
                 setBooks(data.books);
+                setRecommendationType(data.type);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -17,14 +20,20 @@ const Home = () => {
             }
         };
         fetchRecommendations();
+
     }, []);
+
     if (loading) {
         return <h2>Loading recommendations...</h2>;
     }
+    const sectionTitle =
+        recommendationType === "popular"
+            ? "Popular Books"
+            : "Recommended For You";
     return (
         <div>
             <RecommendationSection
-                title="Recommended For You"
+                title={sectionTitle}
                 books={books}
             />
         </div>

@@ -35,3 +35,19 @@ def get_review(
         db,
         book_id = book_id
     )
+    
+
+@router.get(
+    "/{book_id}/my-review",
+    response_model=ReviewResponse | None
+)
+def get_my_review(
+    book_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return ReviewService.get_my_review(
+        db,
+        user.id,
+        book_id
+    )

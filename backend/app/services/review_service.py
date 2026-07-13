@@ -27,8 +27,21 @@ class ReviewService:
         
     
     @staticmethod
+
     def get_review_by_book(db: Session, book_id:int):
         return ReviewRepository.get_review_by_book(
             db,
             book_id
             )
+        
+    @staticmethod
+    def get_my_review(
+        db: Session,
+        user_id: int,
+        book_id: int
+    ):
+        return ReviewRepository.get_my_review(
+            db,
+            user_id,
+            book_id
+        )

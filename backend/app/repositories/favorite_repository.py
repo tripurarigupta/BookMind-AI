@@ -1,6 +1,7 @@
 from sqlalchemy import select, exists
 from sqlalchemy.orm import Session, joinedload
 from app.models.favorite_books import FavoriteBook
+from fastapi import HTTPException
 
 class FavoriteRepository:
 
@@ -37,8 +38,15 @@ class FavoriteRepository:
                 FavoriteBook.book_id == book_id,
                 FavoriteBook.user_id == user_id
             )).scalar_one_or_none()
+        if favorite is None:
+            raise HTTPException(
+                status_code=404,
+                detail="Favorite not found."
+            )
+
         db.delete(favorite)
         db.commit()
+
         return favorite
     
     @staticmethod

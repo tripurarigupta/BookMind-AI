@@ -6,6 +6,11 @@ from app.repositories.favorite_repository import FavoriteRepository
 class FavoriteService:
     
     @staticmethod
+    def is_favorite(db: Session, user_id: int, book_id: int):
+        return {
+            "is_favorite": FavoriteRepository.exists(db, user_id, book_id )}
+    
+    @staticmethod
     def add_favorite(db: Session, user_id: int, book_id: int):
         if FavoriteRepository.exists(
             db,

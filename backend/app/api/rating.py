@@ -25,3 +25,16 @@ def create_rating(
         u_rating = request.rating
     )
     
+    
+@router.get("/{book_id}/rating")
+def get_user_rating(
+    book_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return RatingService.get_user_rating(
+        db,
+        user.id,
+        book_id
+    )
+    

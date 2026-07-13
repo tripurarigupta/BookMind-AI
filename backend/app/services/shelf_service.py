@@ -110,3 +110,16 @@ class ShelfService:
         return {
             "message": "Book removed from shelf successfully"
         }
+        
+    @staticmethod
+    def get_book_shelf(db: Session, user_id: int, book_id: int):
+
+        shelf = ShelfRepository.get_user_shelf(
+            db,
+            user_id,
+            book_id
+        )
+
+        return {
+            "status": shelf.status if shelf else None
+        }

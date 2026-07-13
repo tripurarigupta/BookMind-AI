@@ -29,6 +29,21 @@ class RatingService:
         db.commit()
         return rating
     
+    @staticmethod
+    def get_user_rating(
+        db: Session,
+        user_id: int,
+        book_id: int
+    ):
+        rating = RatingRepository.get_rating_by_user_and_book(
+            db,
+            user_id,
+            book_id
+        )
+
+        return {
+            "rating": rating.rating if rating else 0
+        }
             
     
     @staticmethod

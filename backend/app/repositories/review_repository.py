@@ -1,7 +1,7 @@
 from sqlalchemy import select, exists
 from sqlalchemy.orm import Session
 from app.models.review import Review
-from app.models.book import Book
+from sqlalchemy.orm import joinedload
 
 class ReviewRepository:
     
@@ -21,13 +21,33 @@ class ReviewRepository:
     
     
     @staticmethod
-    def get_review_by_book(db:Session, book_id:int):
+    def get_review_by_book(db: Session, book_id: int):
         query = (
-            select(Review).where(Review.book_id == book_id))
-        review = db.execute(query).scalars().all()
-        return review
+            select(Review)
+            .options(joinedload(Review.user))
+            .where(Review.book_id == book_id)
+            .order_by(Review.updated_at.desc())
+        )
+
+        return db.execute(query).scalars().all()
     
     
     @staticmethod
     def has_reviews(db: Session, user_id):
         return db.scalar(select(exists().where(Review.user_id == user_id)))
+    
+    
+    @staticmethod
+    def get_my_review(
+        db: Session,
+        user_id: int,
+        book_id: int
+    ):
+        return (
+            db.execute(
+                select(Review).where(
+                    Review.user_id == user_id,
+                    Review.book_id == book_id
+                )
+            ).scalar_one_or_none()
+        )

@@ -27,7 +27,7 @@ def create_shelf(
     )
     
     
-@router.get("/{status}",
+@router.get("/status/{status}",
             response_model=ShelfListResponse)
 def get_books_by_status(
     status: ShelfStatus,
@@ -44,7 +44,17 @@ def get_books_by_status(
         limit = limit 
     )
 
-
+@router.get("/{book_id}")
+def get_book_shelf(
+    book_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return ShelfService.get_book_shelf(
+        db,
+        current_user.id,
+        book_id
+    )
 
     
 @router.delete("/{book_id}")
