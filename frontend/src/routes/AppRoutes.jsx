@@ -2,15 +2,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import Home from "../pages/Home/Home";
+import Home from "../pages/home/Home";
 import ProtectedRoute from "./ProtectedRoute";
+import Layout from "../components/layout/Layout";
 
 const AppRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route
-                    path="/"
+                    path="/login"
                     element={<Login />}
                 />
                 <Route
@@ -21,7 +22,9 @@ const AppRoutes = () => {
                 path="/"
                 element={
                     <ProtectedRoute>
-                        <Home />
+                        <Layout>
+                            <Home />
+                        </Layout>
                     </ProtectedRoute>
                     }
                 />

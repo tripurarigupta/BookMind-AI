@@ -1,6 +1,9 @@
 import api from "./axios";
-
-export const getPopularBooks = async () => {
-    const response = await api.get("/recommendations/");
-    return response.data;
+const RecommendationApi = {
+    async getRecommendations() {
+        const response = await api.get("/recommendations");
+        return response.data;
+    }
 };
+
+export default RecommendationApi;
