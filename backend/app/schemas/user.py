@@ -21,3 +21,16 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+        
+class ProfileResponse(BaseModel):
+    id: int
+    username: str
+    email: EmailStr
+
+    favorites_count: int
+    shelves_count: int
+    ratings_count: int
+    reviews_count: int
+
+    class Config:
+        from_attributes = True

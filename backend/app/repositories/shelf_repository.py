@@ -52,3 +52,11 @@ class ShelfRepository:
                 )
             ).scalar_one_or_none()
         )
+        
+    @staticmethod
+    def count_by_user(db: Session, user_id: int):
+        return db.execute(
+            select(func.count())
+            .select_from(Shelf)
+            .where(Shelf.user_id == user_id)
+        ).scalar_one()

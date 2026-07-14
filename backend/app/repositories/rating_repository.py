@@ -1,4 +1,4 @@
-from sqlalchemy import select, exists
+from sqlalchemy import select, exists, func
 from sqlalchemy.orm import Session
 from app.models.rating import Rating
 
@@ -52,3 +52,11 @@ class RatingRepository:
                 )
             ).scalar_one_or_none()
         )
+        
+    @staticmethod
+    def count_by_user(db: Session, user_id: int):
+        return db.execute(
+            select(func.count())
+            .select_from(Rating)
+            .where(Rating.user_id == user_id)
+        ).scalar_one()

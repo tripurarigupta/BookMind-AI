@@ -2,8 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import { login, getCurrentUser } from "../../services/authService";
+import PasswordInput from "../../components/auth/PasswordInput";
 
-import "./Login.css";
+import "../../styles/Auth.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -26,12 +27,10 @@ const Login = () => {
 
     };
     return (
-        <div className="login-page">
-            <div className="login-card">
+        <div className="auth-page">
+            <div className="auth-card">
                 <h1>📚 BookMind AI</h1>
-                <p>
-                    Discover, organize and review your favorite books.
-                </p>
+                <p className="subtitle">  Welcome back! Sign in to continue your reading journey. </p>
                 <form onSubmit={handleSubmit}>
                     <label>Email or Username</label>
                     <input
@@ -41,22 +40,20 @@ const Login = () => {
                         onChange={(e) => setIdentifier(e.target.value)}
                     />
                     <label>Password</label>
-                    <input
-                        type="password"
-                        placeholder="Enter your password"
+                    <PasswordInput
+                        name="password"
                         value={password}
+                        placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button type="submit">
                         Login
                     </button>
                 </form>
-                <span>
+                <div className="auth-footer"> 
                     Don't have an account?
-                    <Link to="/register">
-                        Register
-                    </Link>
-                </span>
+                    <Link to="/register"> Register </Link>
+                </div>
             </div>
         </div>
     );

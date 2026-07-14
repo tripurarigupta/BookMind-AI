@@ -1,143 +1,100 @@
-.login-page {
+.auth-page {
     width: 100%;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background: #f5f7fb;
     padding: 20px;
 }
-
-.login-card {
+.auth-card {
     width: 390px;
-    background: #ffffff;
-
+    background: white;
     padding: 42px 36px;
-
     border-radius: 20px;
-
     display: flex;
     flex-direction: column;
     gap: 24px;
-
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, .08);
 }
-
-.login-card h1 {
-    font-size: 40px;
-    font-weight: 700;
-    color: #111827;
-
+.auth-card h1 {
     text-align: center;
+    font-size: 40px;
+    color: #111827;
     margin-bottom: -8px;
 }
-
-.login-card p {
+.auth-card p.subtitle {
     text-align: center;
-
     color: #6b7280;
-
-    font-size: 16px;
-
     line-height: 1.6;
 }
-
-.login-card form {
+.auth-card form {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
-
-.login-card label {
+.auth-card label {
     font-size: 14px;
     font-weight: 600;
     color: #374151;
-
     margin-bottom: -10px;
 }
-
-.login-card input {
+.auth-card input {
     width: 100%;
-
     padding: 15px 16px;
-
     border: 1px solid #d1d5db;
-
     border-radius: 12px;
-
     font-size: 15px;
-
-    transition: all .25s ease;
-
-    background: white;
+    transition: .25s;
+    box-sizing: border-box;
 }
-
-.login-card input::placeholder {
-    color: #9ca3af;
-}
-
-.login-card input:focus {
+.auth-card input:focus {
     border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.15);
 }
-
-.login-card button {
+.auth-card button[type="submit"] {
     margin-top: 8px;
-
     padding: 15px;
-
     border: none;
-
     border-radius: 12px;
-
     background: #2563eb;
-
     color: white;
-
     font-size: 16px;
-
     font-weight: 600;
-
-    transition: all .25s ease;
+    cursor: pointer;
+    transition: .25s;
 }
-
-.login-card button:hover {
+.auth-card button[type="submit"]:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
 }
-
-.login-card button:active {
-    transform: translateY(0);
+.auth-card button[type="submit"]:disabled {
+    opacity: .6;
+    cursor: not-allowed;
 }
-
-.login-card span {
+.auth-footer {
     text-align: center;
-
     color: #6b7280;
-
-    font-size: 15px;
 }
-
-.login-card span a {
+.auth-footer a {
     color: #2563eb;
     font-weight: 600;
-    margin-left: 4px;
-    transition: color .2s;
+    margin-left: 5px;
+    text-decoration: none;
 }
-
-.login-card span a:hover {
-    color: #1d4ed8;
+.error {
+    color: #dc2626;
+    text-align: center;
+    background: #fef2f2;
+    padding: 10px;
+    border-radius: 10px;
 }
-
-@media (max-width: 480px) {
-    .login-card {
+@media (max-width:480px) {
+    .auth-card {
         width: 100%;
         padding: 32px 24px;
     }
-
-    .login-card h1 {
+    .auth-card h1 {
         font-size: 32px;
     }
 }

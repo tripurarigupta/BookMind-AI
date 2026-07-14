@@ -1,14 +1,12 @@
 .recommendation-section {
     margin: 40px;
 }
-
 .recommendation-section h2 {
     font-size: 28px;
     font-weight: 700;
     color: #222;
     margin-bottom: 25px;
 }
-
 .book-grid {
 
     display: grid;

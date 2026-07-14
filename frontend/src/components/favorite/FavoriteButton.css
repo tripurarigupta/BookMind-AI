@@ -1,37 +1,28 @@
 .favorite-btn{
-    margin:20px 0;
+    margin-top: 12px;
     width:240px;
-    padding:12px 20px;
-
+    padding:12px;
     border:none;
     border-radius:10px;
-
     cursor:pointer;
-
     font-size:16px;
     font-weight:600;
-
     transition:all .25s ease;
 }
-
 .favorite-btn:hover{
     transform:translateY(-2px);
 }
-
 .favorite-btn.active{
-    background:#ffe5e5;
-    color:#c62828;
+    background:rgb(243, 69, 72);
+    color:white;
 }
-
 .favorite-btn:not(.active){
-    background:#f3f4f6;
-    color:#333;
+    background:#5ebde9;
+    color:#ebe2e2;
 }
-
 .favorite-btn:not(.active):hover{
-    background:#e5e7eb;
+    background:#5983e7;
 }
-
 .favorite-btn.active:hover{
-    background:#ffd6d6;
+    background:#a73838;;
 }

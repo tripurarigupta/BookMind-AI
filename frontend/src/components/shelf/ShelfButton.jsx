@@ -5,12 +5,10 @@ import "./ShelfButton.css";
 const ShelfButton = ({ bookId }) => {
     const [status, setStatus] = useState("");
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         const fetchShelf = async () => {
             try {
                 const data = await ShelfApi.getBookShelf(bookId);
-
                 if (data.status) {
                     setStatus(data.status);
                 } else {
@@ -23,13 +21,10 @@ const ShelfButton = ({ bookId }) => {
                 setLoading(false);
             }
         };
-
         fetchShelf();
     }, [bookId]);
-
     const handleChange = async (event) => {
         const newStatus = event.target.value;
-
         try {
             await ShelfApi.addToShelf(bookId, newStatus);
             setStatus(newStatus);
@@ -37,7 +32,6 @@ const ShelfButton = ({ bookId }) => {
             console.error(error);
         }
     };
-
     if (loading) {
         return (
             <button className="shelf-select" disabled>
@@ -45,27 +39,12 @@ const ShelfButton = ({ bookId }) => {
             </button>
         );
     }
-
     return (
-        <select
-            className="shelf-select"
-            value={status}
-            onChange={handleChange}
-        >
-            <option value="" disabled>
-                    Select Shelf
-            </option>
-            <option value="want_to_read">
-                📚 Want To Read
-            </option>
-
-            <option value="reading">
-                📖 Reading
-            </option>
-
-            <option value="completed">
-                ✅ Completed
-            </option>
+        <select className="shelf-select" value={status} onChange={handleChange} >
+            <option value="" disabled> Select Shelf </option>
+            <option value="want_to_read"> 📚 Want To Read </option>
+            <option value="reading"> 📖 Reading </option>
+            <option value="completed"> ✅ Completed </option>
         </select>
     );
 };

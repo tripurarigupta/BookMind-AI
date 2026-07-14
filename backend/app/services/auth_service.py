@@ -1,4 +1,8 @@
 from sqlalchemy.orm import Session
+from app.repositories.favorite_repository import FavoriteRepository
+from app.repositories.shelf_repository import ShelfRepository
+from app.repositories.rating_repository import RatingRepository
+from app.repositories.review_repository import ReviewRepository
 
 from app.models.user import User
 from app.repositories.user_repository import UserRepository
@@ -88,3 +92,30 @@ class AuthService:
         )
 
         return token
+    
+    @staticmethod
+    def get_profile(
+        db: Session,
+        user: User
+    ):
+        return {
+            "id": user.id,
+            "username": user.username,
+            "email": user.email,
+            "favorites_count": FavoriteRepository.count_by_user(
+                db,
+                user.id
+            ),
+            "shelves_count": ShelfRepository.count_by_user(
+                db,
+                user.id
+            ),
+            "ratings_count": RatingRepository.count_by_user(
+                db,
+                user.id
+            ),
+            "reviews_count": ReviewRepository.count_by_user(
+                db,
+                user.id
+            )
+        }

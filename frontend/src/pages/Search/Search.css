@@ -1,39 +1,20 @@
 .search-page{
-
     max-width:1200px;
-
     margin:40px auto;
-
     padding:0 20px;
-
 }
-
 .search-page h3{
-
     margin-top:10px;
-
     color:#6b7280;
-
     margin-bottom:30px;
-
 }
-
 .search-grid{
-
     display:grid;
-
     grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-
     gap:30px;
-
 }
-
 .empty-state{
-
     text-align:center;
-
     margin-top:80px;
-
     color:#6b7280;
-
 }
