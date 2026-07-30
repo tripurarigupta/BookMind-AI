@@ -17,6 +17,31 @@ class Book(Base):
         nullable=False,
         index=True
     )
+    
+    authors: Mapped[int] = mapped_column(
+        Text,
+        nullable=False
+    )
+    
+    publisher: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+    
+    publication_year: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False
+    )
+    
+    num_pages: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False
+    )
+    
+    image_url: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
 
     description: Mapped[str | None] = mapped_column(
         Text,

@@ -6,6 +6,7 @@ import ShelfButton from "../../components/shelf/ShelfButton";
 import RatingStars from "../../components/rating/RatingStars";
 import "./BookDetails.css";
 import ReviewSection from "../../components/review/ReviewSection";
+import BookImage from "../../components/common/BookImage";
 
 const BookDetails = () => {
     const { bookId } = useParams();
@@ -32,7 +33,11 @@ const BookDetails = () => {
     }
     return (
         <div className="book-details">
-            <div className="book-cover-large"> 📚 </div>
+            <BookImage
+                src={book.image_url}
+                alt={book.title}
+                className="book-cover-large"
+            />
             <div className="book-content">
                 <h1>{book.title}</h1>
                 <p className="book-rating"> ⭐ {book.average_rating.toFixed(2)} </p>
@@ -40,7 +45,8 @@ const BookDetails = () => {
                 <FavoriteButton bookId={book.book_id} />
                 <ShelfButton bookId={book.book_id} />
                 <RatingStars bookId={book.book_id} />
-            
+                <h2>Author Name:- {book.authors}</h2>
+                <h2>Publisher:- {book.publisher}</h2>
                 <h2>About this book</h2>
                 <p className="description"> {book.description || "No description available."} </p>
                 <ReviewSection bookId={book.book_id} />

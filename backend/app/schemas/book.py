@@ -4,6 +4,11 @@ from enum import Enum
 class BookResponse(BaseModel):
     book_id: int
     title: str
+    authors: str
+    publisher: str
+    publication_year: int | None
+    num_pages: int | None
+    image_url: str | None
     average_rating: float
     ratings_count: int
     model_config = ConfigDict(from_attributes=True)
@@ -11,6 +16,11 @@ class BookResponse(BaseModel):
 class BookDetailResponse(BaseModel):
     book_id: int
     title: str
+    authors: str
+    publisher: str
+    publication_year: int | None
+    num_pages: int | None
+    image_url: str | None
     description: str
     average_rating: float
     ratings_count: int
