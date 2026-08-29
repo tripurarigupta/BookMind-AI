@@ -27,21 +27,28 @@ const RatingStars = ({ bookId }) => {
         }
     };
     if (loading) {
-        return <p>Loading rating...</p>;
+        return <p className="rating-loading">Loading rating...</p>;
     }
     return (
         <div className="rating-container">
             <h3>Your Rating</h3>
-            <div className="stars">
+            <div className="stars" role="radiogroup" aria-label="Book rating">
                 {[1,2,3,4,5].map((star) => (
-                    <span key={star} className={
+                    <button
+                        key={star}
+                        type="button"
+                        className={
                             star <= rating
                                 ? "star active"
                                 : "star"
                         }
                         onClick={() => handleRating(star)}
-                    > ★
-                    </span>
+                        aria-label={`${star} star${star !== 1 ? "s" : ""}`}
+                        aria-checked={star === rating}
+                        role="radio"
+                    >
+                        ★
+                    </button>
                 ))}
             </div>
         </div>

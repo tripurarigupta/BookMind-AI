@@ -1,17 +1,29 @@
-.shelf-select{
-    width:240px;
-    padding:12px;
-    margin-top:12px;
-    border:none;
-    border-radius:10px;
-    background:#2e7d32;
-    color:white;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.25s;
+.shelf-select {
+  padding: 10px 20px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  appearance: auto;
 }
-.shelf-select:hover{
-    background:#256428;
 
+.shelf-select:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.shelf-select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.shelf-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

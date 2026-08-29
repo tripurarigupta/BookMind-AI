@@ -33,7 +33,7 @@ const FavoriteButton = ({ bookId }) => {
     };
     if (loading) {
         return (
-            <button disabled>
+            <button className="favorite-btn" disabled>
                 Loading...
             </button>
         );
