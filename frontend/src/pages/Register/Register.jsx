@@ -2,6 +2,7 @@ import { useState } from "react";
 import { register } from "../../api/authApi";
 import { useNavigate, Link } from "react-router-dom";
 import PasswordInput from "../../components/auth/PasswordInput";
+import { BookOpen } from "lucide-react";
 import toast from "react-hot-toast";
 
 import "../../styles/Auth.css";
@@ -52,7 +53,7 @@ const Register = () => {
     return (
         <div className="auth-page">
             <div className="auth-card">
-            <h1> 📚 BookMind AI </h1>
+            <h1><BookOpen size={24} /> BookMind AI</h1>
             <p className="subtitle"> Create your free account and start building your personal library. </p>
             <form onSubmit={handleSubmit}>
                 <h2>Create Account</h2>

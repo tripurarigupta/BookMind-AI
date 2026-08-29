@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import ReviewApi from "../../api/reviewApi";
+import { Pencil, PenLine } from "lucide-react";
 import "./ReviewSection.css";
 
 const ReviewSection = ({ bookId }) => {
@@ -49,7 +50,7 @@ const ReviewSection = ({ bookId }) => {
     <div className="review-section">
       <h2>Reviews</h2>
       <button className="review-btn" onClick={() => setShowEditor(true)}>
-        {myReview ? "✏️ Edit Your Review" : "✍️ Write a Review"}
+        {myReview ? <><Pencil size={14} /> Edit Your Review</> : <><PenLine size={14} /> Write a Review</>}
       </button>
       {showEditor && (
         <div className="review-editor">

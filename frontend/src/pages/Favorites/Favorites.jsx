@@ -47,7 +47,7 @@ const Favorites = () => {
       <h1><Heart size={24} /> My Favorites</h1>
       {favorites.length === 0 ? (
         <div className="empty-state">
-          <h2>No favorite books yet ❤️</h2>
+          <h2>No favorite books yet</h2>
           <p>Start exploring books and add your favorites.</p>
         </div>
       ) : (

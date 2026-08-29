@@ -1,29 +1,29 @@
-# 📚 BookMind AI
+# BookMind AI
 
 An AI-powered intelligent book recommendation platform that combines machine learning algorithms, sentiment analysis, and a conversational chatbot to help readers discover their next favorite book.
 
-## 🌟 Features
+## Features
 
 ### Core Features
-- **📚 Book Browsing** — Browse a vast library of 280,000+ books with filtering and sorting
-- **🔍 Smart Search** — Find books by title, author, genre, and more
-- **⭐ Ratings & Reviews** — Rate books and write detailed reviews
-- **❤️ Favorites** — Save books to your personal favorites list
-- **📖 Book Shelves** — Organize books into custom shelves (Want to Read, Currently Reading, Completed)
+- **Book Browsing** — Browse a vast library of 280,000+ books with filtering and sorting
+- **Smart Search** — Find books by title, author, genre, and more
+- **Ratings & Reviews** — Rate books and write detailed reviews
+- **Favorites** — Save books to your personal favorites list
+- **Book Shelves** — Organize books into custom shelves (Want to Read, Currently Reading, Completed)
 
 ### AI-Powered Features
-- **🤖 AI Chatbot** — Conversational assistant to help you discover books
-- **🎯 Hybrid Recommendations** — Content-based filtering combined with collaborative signals
-- **📊 Sentiment Analysis** — AI-powered analysis of book reviews
-- **📝 Review Summarization** — Automatic summarization of book reviews
-- **💡 Explainable Recommendations** — Understand why each book is recommended to you
+- **AI Chatbot** — Conversational assistant to help you discover books
+- **Hybrid Recommendations** — Content-based filtering combined with collaborative signals
+- **Sentiment Analysis** — AI-powered analysis of book reviews
+- **Review Summarization** — Automatic summarization of book reviews
+- **Explainable Recommendations** — Understand why each book is recommended to you
 
 ### User Experience
-- **🔐 Authentication** — Secure JWT-based login and registration
-- **👤 User Profiles** — Personalized profiles with reading statistics
-- **📱 Responsive Design** — Beautiful dark-themed UI that works on all devices
+- **Authentication** — Secure JWT-based login and registration
+- **User Profiles** — Personalized profiles with reading statistics
+- **Responsive Design** — Beautiful dark-themed UI that works on all devices
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Technology | Purpose |
@@ -48,7 +48,7 @@ An AI-powered intelligent book recommendation platform that combines machine lea
 | **Axios** | HTTP client |
 | **Lucide React** | Icon library |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 bookmind-ai/
@@ -101,7 +101,7 @@ bookmind-ai/
 └── docs/                        # Documentation
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.10+
@@ -154,7 +154,7 @@ The application will be available at:
 - **Backend API:** http://localhost:8000
 - **API Documentation:** http://localhost:8000/docs
 
-## 📊 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -170,7 +170,7 @@ The application will be available at:
 | POST | `/api/chatbot` | Chat with AI assistant |
 | GET | `/api/shelves` | Get user's book shelves |
 
-## 🤖 AI Recommendation Engine
+## AI Recommendation Engine
 
 BookMind uses a **hybrid recommendation system** combining:
 
@@ -180,17 +180,17 @@ BookMind uses a **hybrid recommendation system** combining:
 
 3. **Sentiment Analysis** — Uses pre-trained transformer models to analyze the sentiment of user reviews, providing deeper insights into book quality.
 
-## 🎨 UI Highlights
+## UI Highlights
 
 - **Dark Theme** — Easy on the eyes with a modern dark color palette
 - **Responsive Grid** — 5-column book grid on desktop, adapts to smaller screens
 - **Smooth Animations** — Fade-in and hover effects for an engaging experience
 - **Real-time Feedback** — Toast notifications for user actions
 
-## 📜 License
+## License
 
 This project is for educational purposes.
 
 ---
 
-Built with ❤️ using FastAPI, React, and Machine Learning
+Built with FastAPI, React, and Machine Learning

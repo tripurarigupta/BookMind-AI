@@ -4,7 +4,7 @@ import RecommendationSection from "../../components/recommendations/Recommendati
 import RecommendationApi from "../../api/recommendationApi";
 import BookApi from "../../api/bookApi";
 import BookCard from "../../components/books/BookCard";
-import { Sparkles, TrendingUp, SlidersHorizontal, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Sparkles, TrendingUp, SlidersHorizontal, ChevronLeft, ChevronRight, ChevronUp, ChevronDown, X } from "lucide-react";
 import "./Home.css";
 
 const SORT_OPTIONS = [
@@ -211,7 +211,7 @@ const Home = () => {
               ))}
             </select>
             <button className="home__sort-order" onClick={toggleSortOrder} aria-label="Toggle sort order">
-              {sortOrder === "desc" ? "↓" : "↑"}
+              {sortOrder === "desc" ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
             </button>
           </div>
           {hasActiveFilters && (

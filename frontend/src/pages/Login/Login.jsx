@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import { login, getCurrentUser } from "../../services/authService";
 import PasswordInput from "../../components/auth/PasswordInput";
+import { BookOpen } from "lucide-react";
 import toast from "react-hot-toast";
 
 import "../../styles/Auth.css";
@@ -37,7 +38,7 @@ const Login = () => {
     return (
         <div className="auth-page">
             <div className="auth-card">
-                <h1>📚 BookMind AI</h1>
+                <h1><BookOpen size={24} /> BookMind AI</h1>
                 <p className="subtitle">  Welcome back! Sign in to continue your reading journey. </p>
                 <form onSubmit={handleSubmit}>
                     <label>Email or Username</label>

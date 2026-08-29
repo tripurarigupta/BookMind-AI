@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import ProfileApi from "../../api/profileApi";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { User, LogOut } from "lucide-react";
+import { User, LogOut, Heart, BookOpen, Star, FileText } from "lucide-react";
 import "./Profile.css";
 
 const Profile = () => {
@@ -53,22 +53,22 @@ const Profile = () => {
         <p>{profile?.email}</p>
         <div className="profile-stats">
           <div className="stat-card">
-            <h3>❤️</h3>
+            <h3><Heart size={20} /></h3>
             <h2>{profile?.favorites_count}</h2>
             <p>Favorites</p>
           </div>
           <div className="stat-card">
-            <h3>📚</h3>
+            <h3><BookOpen size={20} /></h3>
             <h2>{profile?.shelves_count}</h2>
             <p>Shelved</p>
           </div>
           <div className="stat-card">
-            <h3>⭐</h3>
+            <h3><Star size={20} /></h3>
             <h2>{profile?.ratings_count}</h2>
             <p>Ratings</p>
           </div>
           <div className="stat-card">
-            <h3>📝</h3>
+            <h3><FileText size={20} /></h3>
             <h2>{profile?.reviews_count}</h2>
             <p>Reviews</p>
           </div>

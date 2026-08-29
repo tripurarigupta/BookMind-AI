@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import SearchApi from "../../api/searchApi";
 import BookCard from "../../components/books/BookCard";
-import { Search as SearchIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search as SearchIcon, ChevronLeft, ChevronRight, AlertTriangle } from "lucide-react";
 import "./Search.css";
 
 const SKELETON_COUNT = 8;
@@ -102,7 +102,7 @@ const Search = () => {
 
       {!query && !loading && (
         <div className="search-empty-prompt">
-          <div className="search-empty-prompt__icon" aria-hidden="true">📚</div>
+          <div className="search-empty-prompt__icon" aria-hidden="true"><SearchIcon size={48} /></div>
           <h2 className="search-empty-prompt__title">Find your next great read</h2>
           <p className="search-empty-prompt__text">Search by title, author, or description to get started.</p>
         </div>
@@ -112,7 +112,7 @@ const Search = () => {
 
       {!loading && error && (
         <div className="search-error">
-          <div className="search-error__icon" aria-hidden="true">⚠️</div>
+          <div className="search-error__icon" aria-hidden="true"><AlertTriangle size={48} /></div>
           <h2 className="search-error__title">{error}</h2>
           <p className="search-error__text">Try a different search or check your connection.</p>
         </div>
@@ -131,7 +131,7 @@ const Search = () => {
 
           {books.length === 0 ? (
             <div className="search-no-results">
-              <div className="search-no-results__icon" aria-hidden="true">🔎</div>
+              <div className="search-no-results__icon" aria-hidden="true"><SearchIcon size={48} /></div>
               <h2 className="search-no-results__title">No books found</h2>
               <p className="search-no-results__text">
                 We couldn&apos;t find any books matching &ldquo;{query}&rdquo;. Try a different search term.

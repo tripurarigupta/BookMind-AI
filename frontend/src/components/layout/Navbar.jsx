@@ -39,7 +39,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__inner">
         <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-icon">📚</span>
+          <span className="navbar__logo-icon"><BookOpen size={20} /></span>
           <span className="navbar__logo-text">BookMind</span>
           <span className="navbar__logo-badge">AI</span>
         </Link>

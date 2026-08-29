@@ -1,6 +1,7 @@
 import "./BookCard.css";
 import BookImage from "../common/BookImage";
 import { useNavigate } from "react-router-dom";
+import { Star, Heart, BookOpen } from "lucide-react";
 
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const BookCard = ({ book }) => {
             />
             <div className="book-info">
                 <h3>{book.title}</h3>
-                <p className="rating"> ⭐ {book.average_rating.toFixed(2)} </p>
+                <p className="rating"><Star size={14} /> {book.average_rating.toFixed(2)}</p>
                 <p className="ratings-count"> {book.ratings_count} Ratings </p>
                 <p className="book-author">{book.authors}</p>
                 {(book.publication_year || book.publisher) && (
@@ -29,8 +30,8 @@ const BookCard = ({ book }) => {
                 )}
             </div>
             <div className="book-actions">
-                <button onClick={(e) => e.stopPropagation()}>❤️ Favorite </button>
-                <button onClick={(e) => e.stopPropagation()}> 📚 Want To Read </button>
+                <button onClick={(e) => e.stopPropagation()}><Heart size={14} /> Favorite</button>
+                <button onClick={(e) => e.stopPropagation()}><BookOpen size={14} /> Want To Read</button>
             </div>
         </div>
     );

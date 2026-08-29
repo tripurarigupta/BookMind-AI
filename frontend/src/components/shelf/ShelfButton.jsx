@@ -42,9 +42,9 @@ const ShelfButton = ({ bookId }) => {
     return (
         <select className="shelf-select" value={status} onChange={handleChange} >
             <option value="" disabled> Select Shelf </option>
-            <option value="want_to_read"> 📚 Want To Read </option>
-            <option value="reading"> 📖 Reading </option>
-            <option value="completed"> ✅ Completed </option>
+            <option value="want_to_read"> Want To Read </option>
+            <option value="reading"> Reading </option>
+            <option value="completed"> Completed </option>
         </select>
     );
 };

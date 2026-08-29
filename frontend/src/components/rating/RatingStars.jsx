@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RatingApi from "../../api/ratingApi";
+import { Star } from "lucide-react";
 
 import "./RatingStars.css";
 const RatingStars = ({ bookId }) => {
@@ -47,7 +48,7 @@ const RatingStars = ({ bookId }) => {
                         aria-checked={star === rating}
                         role="radio"
                     >
-                        ★
+                        <Star size={16} />
                     </button>
                 ))}
             </div>

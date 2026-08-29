@@ -6,6 +6,7 @@ import ShelfButton from "../../components/shelf/ShelfButton";
 import RatingStars from "../../components/rating/RatingStars";
 import ReviewSection from "../../components/review/ReviewSection";
 import BookImage from "../../components/common/BookImage";
+import { BookOpen, Star } from "lucide-react";
 import "./BookDetails.css";
 
 const BookDetailsSkeleton = () => (
@@ -74,7 +75,7 @@ const BookDetails = () => {
         return (
             <div className="book-details-error">
                 <div className="book-details-error__icon" aria-hidden="true">
-                    📖
+                    <BookOpen size={48} />
                 </div>
                 <h2 className="book-details-error__title">
                     {error || "Book not found"}
@@ -112,7 +113,7 @@ const BookDetails = () => {
 
                     <div className="book-details__rating-summary">
                         <span className="book-details__star-icon" aria-hidden="true">
-                            ★
+                            <Star size={16} />
                         </span>
                         <span className="book-details__avg-rating">
                             {book.average_rating.toFixed(2)}

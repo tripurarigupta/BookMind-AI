@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FavoriteApi from "../../api/favoriteApi";
+import { Heart } from "lucide-react";
 import "./FavoriteButton.css";
 
 const FavoriteButton = ({ bookId }) => {
@@ -43,7 +44,7 @@ const FavoriteButton = ({ bookId }) => {
             className={`favorite-btn ${isFavorite ? "active" : ""}`}
             onClick={handleFavorite}
         >
-            {isFavorite ? "❤️ In Favorites" : "🤍 Add to Favorites"}
+            {isFavorite ? <><Heart size={14} /> In Favorites</> : <><Heart size={14} /> Add to Favorites</>}
         </button>
     );
 };
