@@ -1,5 +1,20 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from enum import Enum
+from typing import Optional
+
+
+class SortField(str, Enum):
+    TITLE = "title"
+    AVERAGE_RATING = "average_rating"
+    RATINGS_COUNT = "ratings_count"
+    PUBLICATION_YEAR = "publication_year"
+    NUM_PAGES = "num_pages"
+
+
+class SortOrder(str, Enum):
+    ASC = "asc"
+    DESC = "desc"
+
 
 class BookResponse(BaseModel):
     book_id: int
@@ -12,7 +27,8 @@ class BookResponse(BaseModel):
     average_rating: float
     ratings_count: int
     model_config = ConfigDict(from_attributes=True)
-    
+
+
 class BookDetailResponse(BaseModel):
     book_id: int
     title: str
@@ -25,22 +41,23 @@ class BookDetailResponse(BaseModel):
     average_rating: float
     ratings_count: int
     model_config = ConfigDict(from_attributes=True)
-    
+
+
 class BookListResponse(BaseModel):
     page: int
     limit: int
-    total_books: int 
+    total_books: int
     total_pages: int
     books: list[BookResponse]
-    
-    
+
+
 class RecommendationType(str, Enum):
     POPULAR = "popular"
     CONTENT_BASED = "content_based"
     COLLABORATIVE = "collaborative"
     HYBRID = "hybrid"
-    
-    
+
+
 class RecommendationResponse(BaseModel):
     type: str
     books: list[BookResponse]

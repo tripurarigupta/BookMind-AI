@@ -19,7 +19,14 @@ const BookCard = ({ book }) => {
                 <h3>{book.title}</h3>
                 <p className="rating"> ⭐ {book.average_rating.toFixed(2)} </p>
                 <p className="ratings-count"> {book.ratings_count} Ratings </p>
-                <p>{book.authors}</p>
+                <p className="book-author">{book.authors}</p>
+                {(book.publication_year || book.publisher) && (
+                    <p className="book-meta-line">
+                        {book.publication_year && <span>{book.publication_year}</span>}
+                        {book.publication_year && book.publisher && <span className="book-meta-sep">·</span>}
+                        {book.publisher && <span>{book.publisher}</span>}
+                    </p>
+                )}
             </div>
             <div className="book-actions">
                 <button onClick={(e) => e.stopPropagation()}>❤️ Favorite </button>

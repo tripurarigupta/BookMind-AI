@@ -2,6 +2,7 @@ import { useState } from "react";
 import { register } from "../../api/authApi";
 import { useNavigate, Link } from "react-router-dom";
 import PasswordInput from "../../components/auth/PasswordInput";
+import toast from "react-hot-toast";
 
 import "../../styles/Auth.css";
 
@@ -35,13 +36,14 @@ const Register = () => {
                 email: form.email,
                 password: form.password
             });
-            alert("Registration Successful!");
+            toast.success("Account created! Please log in.");
             navigate("/login");
         }
         catch (err) {
-            setError(
-                err.response?.data?.detail || "Registration failed."
-            );
+            const message =
+                err.response?.data?.detail || "Registration failed. Please try again.";
+            setError(message);
+            toast.error(message);
         }
         finally {
             setLoading(false);

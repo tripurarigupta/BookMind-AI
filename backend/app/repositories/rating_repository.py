@@ -33,10 +33,24 @@ class RatingRepository:
         return db.scalar(select(exists().where(Rating.user_id == user_id)))
     
     @staticmethod
-    def get_latest_liked_book(db: Session, user_id: int):
+    def get_latest_rated_book(db: Session, user_id: int):
         return (db.execute( select(Rating).where(
-                    Rating.user_id == user_id,
-                    Rating.rating >= 4).order_by(Rating.updated_at.desc())).scalars().first())
+                    Rating.user_id == user_id).order_by(Rating.updated_at.desc())).scalars().first())
+
+    @staticmethod
+    def get_rated_book_ids(db: Session, user_id: int, limit: int = 10) -> list[int]:
+        """Return book IDs the user has rated, most recent first."""
+        rows = (
+            db.execute(
+                select(Rating.book_id)
+                .where(Rating.user_id == user_id)
+                .order_by(Rating.updated_at.desc())
+                .limit(limit)
+            )
+            .scalars()
+            .all()
+        )
+        return list(rows)
 
     @staticmethod
     def get_user_rating(

@@ -2,11 +2,17 @@
   padding: 0 24px;
 }
 
+.recommendation-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .recommendation-section h2 {
   font-size: var(--text-2xl);
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 24px;
   position: relative;
   display: inline-block;
 }
@@ -22,25 +28,61 @@
   border-radius: var(--radius-full);
 }
 
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+.recommendation-section__nav {
+  display: flex;
+  gap: 8px;
+}
+
+.recommendation-section__nav button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.recommendation-section__nav button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.book-carousel {
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.book-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.book-carousel__item {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
 }
 
 @media (max-width: 768px) {
   .recommendation-section {
     padding: 0 16px;
   }
-  .book-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
+  .book-carousel__item {
+    flex: 0 0 170px;
   }
 }
 
 @media (max-width: 480px) {
-  .book-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  .book-carousel__item {
+    flex: 0 0 150px;
   }
 }

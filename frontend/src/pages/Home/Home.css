@@ -127,7 +127,7 @@
 
 .home__loading-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
@@ -141,6 +141,263 @@
 /* Section */
 .home__section {
   padding: 48px 0;
+}
+
+/* Browse All Books */
+.home__browse {
+  padding: 0 24px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home__browse-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.home__browse-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.home__browse-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.home__filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.home__filter-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.home__filter-toggle--active {
+  border-color: var(--primary);
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+
+.home__filter-badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* Sort Bar */
+.home__sort-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.home__sort-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home__sort-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.home__sort-select {
+  padding: 8px 14px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.home__sort-select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.home__sort-order {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.home__sort-order:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.home__clear-filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.home__clear-filters:hover {
+  background: var(--danger);
+  color: white;
+}
+
+/* Filters Panel */
+.home__filters-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.2s ease-out;
+}
+
+.home__filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.home__filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.home__filter-field label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+.home__filter-field input {
+  padding: 10px 12px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.home__filter-field input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.home__filter-field input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-bg);
+}
+
+/* Browse Grid */
+.home__browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.home__browse-empty {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--text-tertiary);
+  font-size: var(--text-base);
+}
+
+/* Pagination */
+.home__browse-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.home__page-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.home__page-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+.home__page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.home__page-info {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .home__loading-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .home__browse-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -161,10 +418,27 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
+  .home__browse {
+    padding: 0 16px 48px;
+  }
+  .home__browse-header {
+    flex-direction: column;
+  }
+  .home__filters-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero__title {
     font-size: var(--text-2xl);
+  }
+  .home__filters-grid {
+    grid-template-columns: 1fr;
+  }
+  .home__browse-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 }

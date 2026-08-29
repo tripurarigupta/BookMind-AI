@@ -129,6 +129,23 @@ const BookDetails = () => {
                         </p>
                     )}
 
+                    {(book.publication_year || book.num_pages) && (
+                        <div className="book-details__info-row">
+                            {book.publication_year && (
+                                <div className="book-details__info-chip">
+                                    <span className="book-details__label">Year</span>
+                                    <span>{book.publication_year}</span>
+                                </div>
+                            )}
+                            {book.num_pages && (
+                                <div className="book-details__info-chip">
+                                    <span className="book-details__label">Pages</span>
+                                    <span>{book.num_pages}</span>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
                     <div className="book-details__actions">
                         <FavoriteButton bookId={book.book_id} />
                         <ShelfButton bookId={book.book_id} />

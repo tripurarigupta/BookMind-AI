@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import { login, getCurrentUser } from "../../services/authService";
 import PasswordInput from "../../components/auth/PasswordInput";
+import toast from "react-hot-toast";
 
 import "../../styles/Auth.css";
 
@@ -11,20 +12,27 @@ const Login = () => {
     const { setUser } = useAuth();
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             await login(identifier, password);
             const currentUser = await getCurrentUser();
             setUser(currentUser);
+            toast.success("Welcome back!");
             navigate("/");
         }
         catch (error) {
-            console.log("Error:", error);
-            console.log("Response:", error.response);
-            console.log("Data:", error.response?.data);
+            const message =
+                error.response?.data?.detail ||
+                "Invalid credentials. Please try again.";
+            toast.error(message);
         }
-
+        finally {
+            setLoading(false);
+        }
     };
     return (
         <div className="auth-page">
@@ -47,8 +55,8 @@ const Login = () => {
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="submit">
-                        Login
+                    <button type="submit" disabled={loading}>
+                        {loading ? "Signing in..." : "Login"}
                     </button>
                 </form>
                 <div className="auth-footer"> 
